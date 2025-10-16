@@ -60,7 +60,7 @@ function AboutMe() {
   return (
     <section
       ref={sectionRef}
-      className="w-full h-screen sticky top-0 p-4 flex flex-col md:flex-row bg-neutral-100 gap-5 md:gap-0"
+      className="w-full  sticky top-0 p-4 flex flex-col md:flex-row bg-neutral-100 gap-5 md:gap-0"
     >
       {/* Left Text Section */}
       <div

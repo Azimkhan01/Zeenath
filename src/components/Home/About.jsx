@@ -65,7 +65,7 @@ function About() {
 
         <p
           ref={headingRef}
-          className="text-purple-900 text-5xl md:text-8xl font-extrabold text-center capitalize tracking-tight leading-tight"
+          className="text-purple-900 text-5xl  lg:text-8xl font-extrabold text-center capitalize tracking-tight leading-tight"
         >
           Explore and work make world's humanity prize of kingdom
         </p>
@@ -73,25 +73,25 @@ function About() {
         {/* Images with parallax */}
         <div
           ref={(el) => (imgRefs.current[0] = el)}
-          className="absolute w-52 -top-40 -left-80 -rotate-6"
+          className="absolute w-46 lg:w-52 -top-40 -left-40 lg:-left-80 -rotate-6"
         >
           <img src="/home/labor.jpg" className="rounded-xl shadow-xl" />
         </div>
         <div
           ref={(el) => (imgRefs.current[1] = el)}
-          className="absolute w-52 -bottom-40 -left-80 rotate-6"
+          className="absolute w-46 lg:w-52 -bottom-40 -left-40 lg:-left-80 rotate-6"
         >
           <img src="/home/labor.jpg" className="rounded-xl shadow-xl" />
         </div>
         <div
           ref={(el) => (imgRefs.current[2] = el)}
-          className="absolute w-52 -top-40 -right-80 rotate-6"
+          className="absolute w-46 lg:w-52 -top-40 -right-40 lg:-right-80 rotate-6"
         >
           <img src="/home/labor.jpg" className="rounded-xl shadow-xl" />
         </div>
         <div
           ref={(el) => (imgRefs.current[3] = el)}
-          className="absolute w-52 -bottom-40 -right-80 -rotate-6"
+          className="absolute w-46 lg:w-52 -bottom-40 -right-40 lg:-right-80 -rotate-6"
         >
           <img src="/home/labor.jpg" className="rounded-xl shadow-xl" />
         </div>

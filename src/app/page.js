@@ -1,6 +1,7 @@
 import About from '@/components/Home/About'
 import AboutMe from '@/components/Home/AboutMe'
 import HeroSection from '@/components/Home/heroSection'
+import Server from '@/components/Home/Server'
 import React from 'react'
 
 function page() {
@@ -10,6 +11,7 @@ function page() {
       <HeroSection/>
       <AboutMe/>
       <About/>
+      <Server/>
     </>
   )
 }
