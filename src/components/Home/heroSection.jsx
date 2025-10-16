@@ -78,7 +78,7 @@ function HeroSection() {
   );
 
   return (
-    <section ref={container}>
+    <section ref={container} className="bg-gray-100">
       <div className="h-screen w-full flex flex-col md:flex-row justify-between items-center mt-26 md:mt-0 gap-4 px-4">
         {/* Left Section */}
         <div className="w-full md:w-2/6 rounded-2xl h-4/6 flex justify-center items-center relative overflow-hidden">
@@ -98,17 +98,19 @@ function HeroSection() {
         {/* Middle Section */}
         <div
           ref={middleRef}
-          className="w-full md:w-2/6 h-4/6 bg-gradient-to-br from-yellow-100 via-pink-200 to-purple-300 rounded-xl flex flex-col items-center justify-center text-center shadow-lg relative overflow-hidden"
+          className="w-full md:w-2/6 h-4/6 bg-gray-50 rounded-xl flex flex-col items-center justify-center text-center shadow-lg relative overflow-hidden"
         >
           <div className="max-w-3xl px-6 z-10">
-            <h1 className="text-5xl md:text-6xl font-bold text-gray-900 mb-4 tracking-tight">
+            <h1 className="text-5xl md:text-6xl font-bold mb-4 tracking-tight bg-gradient-to-r from-[#042C53] via-[#3F7C5E] to-[#037BB0] bg-[length:200%_200%] text-transparent bg-clip-text animate-gradientMove">
               Zeenath Foundation
             </h1>
+
             <p className="text-lg md:text-xl text-gray-800 leading-relaxed">
-              Empowering communities through education, compassion, and progress.
+              Empowering communities through education, compassion, and
+              progress.
             </p>
             <div className="mt-8">
-              <button className="px-6 py-3 bg-purple-600 text-white rounded-2xl shadow-md hover:bg-purple-700 transition-all">
+              <button className="px-6 py-3 bg-black text-white rounded-2xl shadow-md hover:bg-purple-700 transition-all">
                 Learn More
               </button>
             </div>
