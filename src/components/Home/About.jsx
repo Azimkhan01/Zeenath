@@ -65,7 +65,7 @@ function About() {
 
         <p
           ref={headingRef}
-          className="text-purple-900 text-5xl  lg:text-8xl font-extrabold text-center capitalize tracking-tight leading-tight"
+          className="text-purple-900 text-5xl  lg:text-8xl leading-snug font-extrabold text-center capitalize tracking-tight"
         >
           Explore and work make world's humanity prize of kingdom
         </p>
