@@ -25,7 +25,7 @@ function Ayan() {
         scrollTrigger: {
           trigger: container.current,
           start: "top top",
-          end: "+=800%", // reduced for smoother mobile scroll
+          end: "+=400%", // reduced for smoother mobile scroll
           scrub: true,
           pin: true,
         },
@@ -45,7 +45,7 @@ function Ayan() {
   return (
     <section
       ref={container}
-      className="relative flex flex-col md:flex-row min-h-screen bg-white overflow-hidden"
+      className="sticky top-0 flex flex-col-reverse md:flex-row min-h-screen bg-white overflow-hidden"
     >
       {/* Left Section */}
       <div
@@ -90,12 +90,12 @@ function Ayan() {
       </div>
 
       {/* Right Section */}
-      <div className="w-full md:w-1/2 flex gap-2  justify-center items-center relative bg-blue-200">
+      <div className="w-full md:w-1/2 flex gap-2 justify-center items-center relative bg-blue-200">
         {images.map((item, index) => (
           <div
             key={index}
             ref={(el) => (imageRef.current[index] = el)}
-            className=" inset-0 flex justify-center items-center opacity-0 "
+            className="p-4 md:p-0 inset-0 flex justify-center items-center opacity-0 "
           >
             <img
               src={item}
