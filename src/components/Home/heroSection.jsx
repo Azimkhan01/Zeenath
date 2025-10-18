@@ -81,7 +81,7 @@ function HeroSection() {
     <section ref={container} className="bg-gray-100">
       <div className="h-screen w-full flex flex-col md:flex-row justify-between items-center mt-26 md:mt-0 gap-4 px-4">
         {/* Left Section */}
-        <div className="w-full md:w-2/6 rounded-2xl h-4/6 flex justify-center items-center relative overflow-hidden">
+        <div className="w-full p-2 md:p-0 md:w-2/6 rounded-2xl h-4/6 flex justify-center items-center relative overflow-hidden">
           <img
             ref={leftImgRef}
             className="absolute inset-0 w-full h-full object-cover opacity-90"
@@ -98,7 +98,7 @@ function HeroSection() {
         {/* Middle Section */}
         <div
           ref={middleRef}
-          className="w-full md:w-2/6 h-4/6 bg-gray-50 rounded-xl flex flex-col items-center justify-center text-center shadow-lg relative overflow-hidden"
+          className="w-full p-2 md:p-0 md:w-2/6 h-4/6 bg-gray-50 rounded-xl flex flex-col items-center justify-center text-center shadow-lg relative overflow-hidden"
         >
           <div className="max-w-3xl px-6 z-10">
             <h1 className="text-5xl md:text-6xl font-bold mb-4 tracking-tight bg-gradient-to-r from-[#042C53] via-[#3F7C5E] to-[#037BB0] bg-[length:200%_200%] text-transparent bg-clip-text animate-gradientMove">
@@ -119,7 +119,7 @@ function HeroSection() {
         </div>
 
         {/* Right Section */}
-        <div className="w-full md:w-2/6 h-4/6 rounded-xl flex justify-center items-center relative overflow-hidden">
+        <div className="w-full p-2 md:p-0 md:w-2/6 h-4/6 rounded-xl flex justify-center items-center relative overflow-hidden">
           <img
             ref={rightImgRef}
             className="absolute inset-0 w-full h-full object-cover opacity-90"
