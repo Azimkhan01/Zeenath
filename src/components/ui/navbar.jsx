@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { House, BookImage, HandHelping, ShieldCheck } from "lucide-react";
+import { House, BookImage, ShieldCheck, Merge } from "lucide-react";
 import MobileNavbar from "../Navbar/mobileNavbar";
 function Navbar() {
   const pages = [
@@ -15,9 +15,9 @@ function Navbar() {
       icon: <BookImage />,
     },
     {
-      name: "About",
-      link: "/about",
-      icon: <HandHelping />,
+      name: "Join",
+      link: "/join",
+      icon: <Merge />,
     },
     {
       name: "Contact",
