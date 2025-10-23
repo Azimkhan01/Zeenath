@@ -2,10 +2,11 @@
 
 import { MoveUpRight, Square } from "lucide-react";
 import Link from "next/link";
-import React, { useRef } from "react";
+import React, { useRef, useEffect } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
+import Hls from "hls.js"; // for streaming
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -14,9 +15,29 @@ function AboutMe() {
   const textRef = useRef();
   const videoRef = useRef();
 
+  useEffect(() => {
+    const video = videoRef.current;
+    const hls = new Hls();
+
+    const streamURL =
+      "https://ik.imagekit.io/botanixnatural/parentandchild.mp4/ik-master.m3u8?tr=sr-360_480_720_1080";
+
+    if (video.canPlayType("application/vnd.apple.mpegurl")) {
+      // Safari native HLS
+      video.src = streamURL;
+    } else if (Hls.isSupported()) {
+      // Other browsers
+      hls.loadSource(streamURL);
+      hls.attachMedia(video);
+    } else {
+      console.error("HLS not supported in this browser.");
+    }
+
+    return () => hls.destroy();
+  }, []);
+
   useGSAP(() => {
     const ctx = gsap.context(() => {
-      // Animate text and video container
       gsap.fromTo(
         textRef.current,
         { y: 100, opacity: 0, scale: 0.9 },
@@ -60,7 +81,7 @@ function AboutMe() {
   return (
     <section
       ref={sectionRef}
-      className="w-full  sticky top-0 p-4 flex flex-col md:flex-row bg-neutral-100 gap-5 md:gap-0"
+      className="w-full sticky top-0 p-4 flex flex-col md:flex-row bg-neutral-100 gap-5 md:gap-0"
     >
       {/* Left Text Section */}
       <div
@@ -78,8 +99,8 @@ function AboutMe() {
         </div>
         <div className="flex justify-center md:justify-start items-center">
           <Link
-            className=" flex gap-2 bg-neutral-400 hover:bg-white transition border border-neutral-300 w-3/6 md:w-1/6 justify-center items-center p-3 rounded-lg font-bold text-white hover:text-neutral-400 text-lg"
-            href={"/"}
+            className="flex gap-2 bg-neutral-400 hover:bg-white transition border border-neutral-300 w-3/6 md:w-1/6 justify-center items-center p-3 rounded-lg font-bold text-white hover:text-neutral-400 text-lg"
+            href="/"
           >
             Explore <MoveUpRight />
           </Link>
@@ -93,11 +114,9 @@ function AboutMe() {
           className="w-full rounded-2xl opacity-90 shadow-lg"
           muted
           playsInline
+          loop
           preload="none"
-        >
-          <source src="/home/parentandchild.mp4" type="video/mp4" />
-          Your browser does not support the video tag.
-        </video>
+        />
       </div>
     </section>
   );

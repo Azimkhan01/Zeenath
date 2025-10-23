@@ -27,7 +27,7 @@ function Ayan() {
           start: "top top",
           end: "+=100%", // reduced for smoother mobile scroll
           scrub: true,
-          pin: true,
+          // pin: true,
         },
       });
 
