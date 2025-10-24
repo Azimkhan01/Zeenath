@@ -75,7 +75,7 @@ function HeroSection() {
         );
     },
     { scope: container }
-  );
+  ); 
 
   return (
     <section ref={container} className="bg-gray-100">
