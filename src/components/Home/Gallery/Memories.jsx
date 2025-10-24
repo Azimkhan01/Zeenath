@@ -3,43 +3,32 @@ import React, { useState } from "react";
 import { X } from "lucide-react";
 
 function Memories() {
-  // 🔹 Ads Array
+  // 🔹 Ads Array (currently empty)
   const ads = [
-    {
-      id: 1,
-      title: "Explore Our New Campaign 🌍",
-      desc: "Join hands in making education accessible to all.",
-      link: "https://example.com/campaign",
-      img: "https://images.pexels.com/photos/3184418/pexels-photo-3184418.jpeg",
-    },
-    {
-      id: 2,
-      title: "Volunteer With Us 🤝",
-      desc: "Give your time to make a difference.",
-      link: "https://example.com/volunteer",
-      img: "https://images.pexels.com/photos/6646913/pexels-photo-6646913.jpeg",
-    },
-    {
-      id: 3,
-      title: "Support Zeenath Foundation 💖",
-      desc: "Your small help can change big lives.",
-      link: "https://example.com/donate",
-      img: "https://images.pexels.com/photos/6995208/pexels-photo-6995208.jpeg",
-    },
+    // {
+    //   id: 1,
+    //   title: "Explore Our New Campaign 🌍",
+    //   desc: "Join hands in making education accessible to all.",
+    //   link: "https://example.com/campaign",
+    //   img: "https://images.pexels.com/photos/3184418/pexels-photo-3184418.jpeg",
+    // },
   ];
 
   // 🔹 State for active reel
   const [active, setActive] = useState(null);
 
-  // 🔹 Random ad placement every few cards
-  const shouldShowAd = (index) => index % 8 === 5;
+  // 🔹 Show ad every few cards (only if ads exist)
+  const shouldShowAd = (index) => ads.length > 0 && index % 8 === 5;
 
   return (
     <section className="min-h-screen bg-gradient-to-br from-pink-300 via-yellow-200 to-sky-300 py-10 relative">
       <div className="flex flex-wrap justify-center gap-4 sm:gap-6 md:gap-8 px-4">
         {Array.from({ length: 50 }).map((_, index) => {
           const isEven = index % 2 === 0;
-          const ad = ads[Math.floor(Math.random() * ads.length)];
+
+          // Pick random ad safely
+          const ad =
+            ads.length > 0 ? ads[Math.floor(Math.random() * ads.length)] : null;
 
           return (
             <React.Fragment key={index}>
@@ -68,8 +57,8 @@ function Memories() {
                 </div>
               </div>
 
-              {/* Random Ads */}
-              {shouldShowAd(index) && (
+              {/* Random Ads (only if ads exist) */}
+              {shouldShowAd(index) && ad && (
                 <div className="w-full sm:w-[90%] md:w-[80%] lg:w-[70%] bg-white rounded-xl shadow-lg overflow-hidden flex flex-col sm:flex-row mt-4 hover:scale-[1.02] transition-transform duration-300">
                   <img
                     src={ad.img}
@@ -84,6 +73,7 @@ function Memories() {
                     <a
                       href={ad.link}
                       target="_blank"
+                      rel="noopener noreferrer"
                       className="mt-3 inline-block text-sm font-semibold text-blue-600 hover:underline"
                     >
                       Learn More →

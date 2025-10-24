@@ -73,25 +73,25 @@ function About() {
         {/* Images with parallax */}
         <div
           ref={(el) => (imgRefs.current[0] = el)}
-          className="absolute w-46 lg:w-52 -top-40 -left-40 lg:-left-80 -rotate-6"
+          className="absolute w-36 lg:w-52 -top-55 md:-top-40 -left-30 md:-left-40 lg:-left-80 -rotate-6"
         >
           <img src="/home/labor.jpg" className="rounded-xl shadow-xl" />
         </div>
         <div
           ref={(el) => (imgRefs.current[1] = el)}
-          className="absolute w-46 lg:w-52 -bottom-40 -left-40 lg:-left-80 rotate-6"
+          className="absolute w-36 lg:w-52  -bottom-40 -left-30  md:-left-40 lg:-left-80 rotate-6"
         >
           <img src="/home/labor.jpg" className="rounded-xl shadow-xl" />
         </div>
         <div
           ref={(el) => (imgRefs.current[2] = el)}
-          className="absolute w-46 lg:w-52 -top-40 -right-40 lg:-right-80 rotate-6"
+          className="absolute w-36 lg:w-52 -top-55 md:-top-40 -right-30 md:-right-40 lg:-right-80 rotate-6"
         >
           <img src="/home/labor.jpg" className="rounded-xl shadow-xl" />
         </div>
         <div
           ref={(el) => (imgRefs.current[3] = el)}
-          className="absolute w-46 lg:w-52 -bottom-40 -right-40 lg:-right-80 -rotate-6"
+          className="absolute w-36 lg:w-52 -bottom-40 -right-30 md:-right-40 lg:-right-80 -rotate-6"
         >
           <img src="/home/labor.jpg" className="rounded-xl shadow-xl" />
         </div>

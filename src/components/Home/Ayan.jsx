@@ -24,8 +24,8 @@ function Ayan() {
       const tl = gsap.timeline({
         scrollTrigger: {
           trigger: container.current,
-          start: "top top",
-          end: "+=50%", // reduced for smoother mobile scroll
+          start: "top 30%",
+          end: "+=20%", // reduced for smoother mobile scroll
           scrub: true,
           // pin: true,
         },
