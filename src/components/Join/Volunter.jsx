@@ -1,5 +1,6 @@
 "use client";
 import React, { useState } from "react";
+import { toast } from "sonner";
 
 function Volunteer() {
   const [formData, setFormData] = useState({
@@ -18,7 +19,10 @@ function Volunteer() {
   const validate = () => {
     const newErrors = {};
     if (!formData.name.trim()) newErrors.name = "Name is required";
-    if (!formData.email.trim() || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email))
+    if (
+      !formData.email.trim() ||
+      !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)
+    )
       newErrors.email = "Enter a valid email address";
     if (!formData.area.trim()) newErrors.area = "Area is required";
     if (!/^\d{6}$/.test(formData.pincode))
@@ -36,31 +40,37 @@ function Volunteer() {
     const newErrors = validate();
 
     if (Object.keys(newErrors).length === 0) {
-      try {
-        const res = await fetch("/api/volunteer", {
+      setErrors({});
+
+      // 🔥 Use toast.promise for async feedback
+      await toast.promise(
+        fetch("/api/volunteer", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify(formData),
-        });
-
-        if (res.ok) {
-          setSubmitted(true);
-          setFormData({
-            name: "",
-            email: "",
-            area: "",
-            pincode: "",
-            address: "",
-            contact: "",
-            graduation: "",
-          });
-          setTimeout(() => setSubmitted(false), 4000);
-        } else {
-          alert("Error sending email ❌");
+        }).then(async (res) => {
+          if (!res.ok) throw new Error("Failed to send");
+          return res.json();
+        }),
+        {
+          loading: "Sending your details...",
+          success: "🎉 Thank you! Your details have been sent successfully.",
+          error: "❌ Something went wrong while sending. Please try again!",
         }
-      } catch (err) {
-        console.error(err);
-      }
+      );
+
+      // Reset form
+      setSubmitted(true);
+      setFormData({
+        name: "",
+        email: "",
+        area: "",
+        pincode: "",
+        address: "",
+        contact: "",
+        graduation: "",
+      });
+      setTimeout(() => setSubmitted(false), 4000);
     } else {
       setErrors(newErrors);
     }
@@ -75,12 +85,6 @@ function Volunteer() {
         <h2 className="text-3xl font-bold text-center text-purple-800 mb-6">
           Volunteer With Us 🤝
         </h2>
-
-        {submitted && (
-          <div className="mb-4 p-3 bg-green-100 text-green-700 rounded-lg text-center font-semibold animate-pulse">
-            🎉 Thank you! Your details have been sent.
-          </div>
-        )}
 
         {Object.entries(formData).map(([key, value]) => (
           <div className="mb-4" key={key}>
